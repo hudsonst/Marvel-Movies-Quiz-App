@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background:
+    linear-gradient(
+        rgba(214, 214, 214, 0.45), 
+        rgba(214, 214, 214, 0.45)
+      ),
+     url("img/mcu_large.jpg");
+}
+
+.container {
+    width: 80%;
+    height: 500px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    padding-top: 5%;
+}
+
+.quizContent {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.splashTitle {
+    font-family: 'Permanent Marker', cursive;
+    font-size:6vw;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.question {
+    border: 3px solid grey;
+    text-align: center;
+    background-color: lightcyan;
+    margin-bottom: 15px;
+}
+
+.question h1 {
+    font-family: 'Permanent Marker', cursive;
+}
+.answers {
+    padding-top: 15px;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+.score {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 3px solid grey;
+    background-color: lightcyan;
+    margin-top: 15px;
+}
+
+.score button {
+    height: 60%;
+}

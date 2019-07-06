@@ -3,15 +3,12 @@
 }
 
 
-
 body {
     font-family: 'Ubuntu', sans-serif;
     background:
-    linear-gradient(
-        rgba(214, 214, 214, 0.45), 
-        rgba(214, 214, 214, 0.45)
-      ),
-     url("img/mcu_large.jpg");
+        linear-gradient(rgba(214, 214, 214, 0.45),
+            rgba(214, 214, 214, 0.45)),
+        url("img/mcu_large.jpg");
 }
 
 .container {
@@ -21,52 +18,81 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
-    padding-top: 5%;
+    border: 3px solid grey;
+    display: flex;
+    flex-direction: column;
 }
 
 .quizContent {
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .splashTitle {
     font-family: 'Permanent Marker', cursive;
-    font-size:6vw;
+    font-size: 6vw;
     text-align: center;
 }
 
 .center {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .question {
-    border: 3px solid grey;
+    border: 3px solid lightgrey;
     text-align: center;
-    background-color: lightcyan;
-    margin-bottom: 15px;
+    background-color: #74b5e3;
 }
 
-.question h1 {
+h1 {
     font-family: 'Permanent Marker', cursive;
 }
-.answers {
-    padding-top: 15px;
+
+.questionNumber {
+    font-size: smaller;
 }
 
-/* .hidden {
-    display: none;
-} */
+.answers {
+    background-color: lightgrey;
+    padding: 15px;
+}
 
 .score {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    border: 3px solid grey;
-    background-color: lightcyan;
-    margin-top: 15px;
+    border-top: 3px solid grey;
+    background-color: #74b5e3;
+    flex-grow: 1;
 }
 
 .score button {
-    height: 60%;
+    height: 50%;
+}
+
+.score p {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.finalScore {
+    border: 3px solid lightgrey;
+    text-align: center;
+    background-color: #74b5e3;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.retake {
+    text-align: center;
+    padding: 15px;
 }

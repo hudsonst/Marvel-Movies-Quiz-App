@@ -1,5 +1,14 @@
 'use strict';
 
+function splashPage() {
+    return `
+    <h1 class="splashTitle">Marvel Movies Quiz</h1>
+    <div class="center">
+    <p>How well do you know the Marvel Movies? Take this quiz to find out!</p>
+        <button class="start">Start</button>
+    </div>`;
+}
+
 function questionTemplate(qNum, sNum) {
     const index = qNum - 1;
     return `
@@ -149,5 +158,13 @@ function renderQuiz(qNum, sNum) {
     $('main.container').html(questionTemplate(qNum, sNum));
     submitAnswer(qNum, sNum)
     console.log("rendered quiz");
-}
-renderQuiz(1, 0);
+};
+
+function start() {
+    $('main.container').html(splashPage());
+    $('.start').click(event => {
+        renderQuiz(1, 0);
+    })
+};
+
+start();

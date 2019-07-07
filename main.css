@@ -49,10 +49,26 @@ body {
     margin-right: auto;
 }
 
+.top-margin-small {
+    margin-top: 10px;
+}
+
+legend {
+    display: block;
+}
+
+fieldset {
+    border: none;
+}
+
 .question {
     border: 3px solid lightgrey;
     text-align: center;
     background-color: #74b5e3;
+}
+
+label {
+    display: block;
 }
 
 h1 {
@@ -66,6 +82,10 @@ h1 {
 .answers {
     background-color: lightgrey;
     padding: 15px;
+}
+
+.answer {
+    cursor: pointer;
 }
 
 .score {
@@ -99,6 +119,10 @@ a {
 .retake {
     text-align: center;
     padding: 15px;
+}
+
+.hidden {
+    display: none;
 }
 @media screen and (max-width: 700px) {
     .container {

@@ -15,27 +15,34 @@ function questionTemplate(qNum, sNum) {
     const index = qNum - 1;
     return `
       <section class="quizContent" role="contentinfo">
-      <section class="question">
-      <h1>Question ${qNum}</h1>
-      <p class="quesText">${questions[index].Q}</p>
-      <p class="questionNumber">Question ${qNum} of 10</p>
-      </section>
-      <section class="answers">
       <form>
+      <legend>
+         <section class="question">
+            <h1>Question ${qNum}</h1>
+            <p class="quesText">${questions[index].Q}</p>
+            <p class="questionNumber">Question ${qNum} of 10</p>
+         </section>
+      </legend>
+      <section class="answers">
         <fieldset name="Answers">
-            <input class="answer" type="radio" id="option1" name="option" value="${questions[index].A[0]}">
-            <label for="option1">${questions[index].A[0]}</label><br>
 
+            <label>
+            <input class="answer" type="radio" id="option1" name="option" value="${questions[index].A[0]}" required>
+            ${questions[index].A[0]}</label>
+
+            <label>
             <input class="answer" type="radio" id="option2" name="option" value="${questions[index].A[1]}">
-            <label for="option2">${questions[index].A[1]}</label><br>
-    
+            ${questions[index].A[1]}</label>
+
+            <label>
             <input class="answer" type="radio" id="option3" name="option" value="${questions[index].A[2]}">
-            <label for="option3">${questions[index].A[2]}</label><br>
+            ${questions[index].A[2]}</label>
  
+            <label>
             <input class="answer" type="radio" id="option4" name="option" value="${questions[index].A[3]}">
-            <label for="option4">${questions[index].A[3]}</label><br>
-            <br>
-            <div class="center">
+            ${questions[index].A[3]}</label>
+            
+            <div class="center top-margin-small">
             <input type="submit" value="Submit">
             </div>
         </fieldset>
@@ -78,7 +85,7 @@ function wrongAnswerPage(qNum, sNum) {
       <section class="question">
       <h1>Question ${qNum}</h1>
       <p class="quesText">${questions[index].Q}</p>
-      <p class="questionNumber">Question ${sNum} of 10</p>
+      <p class="questionNumber">Question ${qNum} of 10</p>
       </section>
       
       <section class="correctAnswer"><p>Sorry! ${questions[index].correct} is the right answer.<br>
@@ -123,19 +130,20 @@ function goToFinalPage(sNum) {
         $('section.finalScore').prepend("<p>You're the Tony Stark of Marvel Movie Knowledge!</p>");
 
     }
+    retakeQuiz();
 
 }
 
 function finalPage(sNum) {
     return `
-          <section class="quizContent" role="contentinfo">
+        <section class="quizContent" role="contentinfo">
           <header>
           <h1 class="center">Final Score</h1>
           </header>
           <section class="finalScore"><p>Your final score is ${sNum} out of 10!</p></section>
       
           <section class="retake">
-          <a href="index.html"><button class="again">Retake the Quiz</div></a>
+          <button class="again">Retake the Quiz</div>
           </section>
         </section>
         `;
@@ -155,6 +163,12 @@ function submitAnswer(qNum, sNum) {
             $('main.container').html(wrongAnswerPage(qNum, sNum));
         };
         nextPage(qNum, sNum);
+    });
+};
+
+function retakeQuiz() {
+    $('.again').click(event => {
+        start();
     });
 };
 

@@ -120,7 +120,7 @@ function nextPage(qNum, sNum) {
 
 function goToFinalPage(sNum) {
     $('main.container').html(finalPage(sNum));
-    if (sNum < 2) {
+    if (sNum <= 2) {
         $('section.finalScore').prepend("<p>It's okay. We all have things we're good at.</p>");
     } else if (sNum >= 3 && sNum <= 5) {
         $('section.finalScore').prepend("<p>You may want to bone up on your MCU knowledge.</p>");

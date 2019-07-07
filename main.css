@@ -3,6 +3,7 @@
 }
 
 
+
 body {
     font-family: 'Ubuntu', sans-serif;
     background:
@@ -11,9 +12,12 @@ body {
         url("img/mcu_large.jpg");
 }
 
+.start {
+    margin-bottom: 20px;
+}
+
 .container {
     width: 80%;
-    height: 500px;
     background-color: white;
     margin-left: auto;
     margin-right: auto;
@@ -27,10 +31,10 @@ body {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    height: 400px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 20px;
 }
 
 .splashTitle {
@@ -95,4 +99,18 @@ a {
 .retake {
     text-align: center;
     padding: 15px;
+}
+@media screen and (max-width: 700px) {
+    .container {
+        width: 90%;        
+     }
+
+    .quizContent {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .quizContent {
+        width: 60%;
+    }
 }

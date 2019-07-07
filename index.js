@@ -2,7 +2,9 @@
 
 function splashPage() {
     return `
+    <header>
     <h1 class="splashTitle">Marvel Movies Quiz</h1>
+    </header>
     <div class="center">
     <p>How well do you know the Marvel Movies? Take this quiz to find out!</p>
         <button class="start">Start</button>
@@ -12,7 +14,7 @@ function splashPage() {
 function questionTemplate(qNum, sNum) {
     const index = qNum - 1;
     return `
-      <section class="quizContent">
+      <section class="quizContent" role="contentinfo">
       <section class="question">
       <h1>Question ${qNum}</h1>
       <p class="quesText">${questions[index].Q}</p>
@@ -20,22 +22,23 @@ function questionTemplate(qNum, sNum) {
       </section>
       <section class="answers">
       <form>
-            <input class="answer" type="radio" name="option" value="${questions[index].A[0]}">
-            ${questions[index].A[0]}<br>
+        <fieldset name="Answers">
+            <input class="answer" type="radio" id="option1" name="option" value="${questions[index].A[0]}">
+            <label for="option1">${questions[index].A[0]}</label><br>
 
-            <input class="answer" type="radio" name="option" value="${questions[index].A[1]}">
-            ${questions[index].A[1]}<br>
+            <input class="answer" type="radio" id="option2" name="option" value="${questions[index].A[1]}">
+            <label for="option2">${questions[index].A[1]}</label><br>
     
-
-            <input class="answer" type="radio" name="option" value="${questions[index].A[2]}">
-            ${questions[index].A[2]}<br>
+            <input class="answer" type="radio" id="option3" name="option" value="${questions[index].A[2]}">
+            <label for="option3">${questions[index].A[2]}</label><br>
  
-            <input class="answer" type="radio" name="option" value="${questions[index].A[3]}">
-            ${questions[index].A[3]}<br>
+            <input class="answer" type="radio" id="option4" name="option" value="${questions[index].A[3]}">
+            <label for="option4">${questions[index].A[3]}</label><br>
             <br>
             <div class="center">
             <input type="submit" value="Submit">
             </div>
+        </fieldset>
       </form>
       </section>
       </section>
@@ -50,7 +53,7 @@ function questionTemplate(qNum, sNum) {
 function correctAnswerPage(qNum, sNum) {
     const index = qNum - 1;
     return `
-      <section class="quizContent">
+      <section class="quizContent" role="contentinfo">
       <section class="question">
       <h1>Question ${qNum}</h1>
       <p class="quesText">${questions[index].Q}</p>
@@ -71,7 +74,7 @@ function correctAnswerPage(qNum, sNum) {
 function wrongAnswerPage(qNum, sNum) {
     const index = qNum - 1;
     return `
-      <section class="quizContent">
+      <section class="quizContent" role="contentinfo">
       <section class="question">
       <h1>Question ${qNum}</h1>
       <p class="quesText">${questions[index].Q}</p>
@@ -111,13 +114,13 @@ function nextPage(qNum, sNum) {
 function goToFinalPage(sNum) {
     $('main.container').html(finalPage(sNum));
     if (sNum < 2) {
-        $('section.finalScore').prepend("<p class='prepend'>It's okay. We all have things we're good at.</p>");
+        $('section.finalScore').prepend("<p>It's okay. We all have things we're good at.</p>");
     } else if (sNum >= 3 && sNum <= 5) {
-        $('section.finalScore').prepend("<p class='prepend'>You may want to bone up on your MCU knowledge.</p>");
+        $('section.finalScore').prepend("<p>You may want to bone up on your MCU knowledge.</p>");
     } else if (sNum >= 6 && sNum <= 7) {
-        $('section.finalScore').prepend("<p class='prepend'>You're doing all right. Kinda like Ant-Man.</p>");
+        $('section.finalScore').prepend("<p>You're doing all right. Kinda like Ant-Man.</p>");
     } else {
-        $('section.finalScore').prepend("<p class='prepend'>You're the Tony Stark of Marvel Movie Knowledge!</p>");
+        $('section.finalScore').prepend("<p>You're the Tony Stark of Marvel Movie Knowledge!</p>");
 
     }
 
@@ -125,8 +128,10 @@ function goToFinalPage(sNum) {
 
 function finalPage(sNum) {
     return `
-          <section class="quizContent">
+          <section class="quizContent" role="contentinfo">
+          <header>
           <h1 class="center">Final Score</h1>
+          </header>
           <section class="finalScore"><p>Your final score is ${sNum} out of 10!</p></section>
       
           <section class="retake">
